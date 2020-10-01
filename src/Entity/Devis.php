@@ -71,6 +71,16 @@ class Devis
      */
     private $date_devis;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type_paiement;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $prix;
+
 
     public function getId(): ?int
     {
@@ -193,6 +203,30 @@ class Devis
     public function setDateDevis(?\DateTimeInterface $date_devis): self
     {
         $this->date_devis = $date_devis;
+
+        return $this;
+    }
+
+    public function getTypePaiement(): ?string
+    {
+        return $this->type_paiement;
+    }
+
+    public function setTypePaiement(string $type_paiement): self
+    {
+        $this->type_paiement = $type_paiement;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }

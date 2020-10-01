@@ -46,11 +46,28 @@ class Ambiance
      */
     private $link_picture;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Piece::class, mappedBy="ambiance")
+     */
+    private $pieces;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=PieceAmbianceMeubleGroupe::class, inversedBy="ambiance")
+     */
+    private $pieceAmbianceMeubleGroupe;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PieceAmbianceMeubleGroupe::class, mappedBy="ambiance")
+     */
+    private $pieceAmbianceMeubleGroupes;
+
 
     public function __construct()
     {
         $this->meuble_groupe = new ArrayCollection();
         $this->devis = new ArrayCollection();
+        $this->pieces = new ArrayCollection();
+        $this->pieceAmbianceMeubleGroupes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,6 +164,77 @@ class Ambiance
     public function setLinkPicture(?string $link_picture): self
     {
         $this->link_picture = $link_picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Piece[]
+     */
+    public function getPieces(): Collection
+    {
+        return $this->pieces;
+    }
+
+    public function addPiece(Piece $piece): self
+    {
+        if (!$this->pieces->contains($piece)) {
+            $this->pieces[] = $piece;
+            $piece->addAmbiance($this);
+        }
+
+        return $this;
+    }
+
+    public function removePiece(Piece $piece): self
+    {
+        if ($this->pieces->contains($piece)) {
+            $this->pieces->removeElement($piece);
+            $piece->removeAmbiance($this);
+        }
+
+        return $this;
+    }
+
+    public function getPieceAmbianceMeubleGroupe(): ?PieceAmbianceMeubleGroupe
+    {
+        return $this->pieceAmbianceMeubleGroupe;
+    }
+
+    public function setPieceAmbianceMeubleGroupe(?PieceAmbianceMeubleGroupe $pieceAmbianceMeubleGroupe): self
+    {
+        $this->pieceAmbianceMeubleGroupe = $pieceAmbianceMeubleGroupe;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PieceAmbianceMeubleGroupe[]
+     */
+    public function getPieceAmbianceMeubleGroupes(): Collection
+    {
+        return $this->pieceAmbianceMeubleGroupes;
+    }
+
+    public function addPieceAmbianceMeubleGroupe(PieceAmbianceMeubleGroupe $pieceAmbianceMeubleGroupe): self
+    {
+        if (!$this->pieceAmbianceMeubleGroupes->contains($pieceAmbianceMeubleGroupe)) {
+            $this->pieceAmbianceMeubleGroupes[] = $pieceAmbianceMeubleGroupe;
+            $pieceAmbianceMeubleGroupe->setAmbiance($this);
+        }
+
+        return $this;
+    }
+
+    public function removePieceAmbianceMeubleGroupe(PieceAmbianceMeubleGroupe $pieceAmbianceMeubleGroupe): self
+    {
+        if ($this->pieceAmbianceMeubleGroupes->contains($pieceAmbianceMeubleGroupe)) {
+            $this->pieceAmbianceMeubleGroupes->removeElement($pieceAmbianceMeubleGroupe);
+            // set the owning side to null (unless already changed)
+            if ($pieceAmbianceMeubleGroupe->getAmbiance() === $this) {
+                $pieceAmbianceMeubleGroupe->setAmbiance(null);
+            }
+        }
 
         return $this;
     }

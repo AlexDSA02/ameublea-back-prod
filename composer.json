@@ -67,9 +67,18 @@
         "symfony/symfony": "*"
     },
     "extra": {
+        "incenteev-parameters": {
+            "env-map": {
+                "database_host": "127.0.0.1",
+                "database_port": "8889"
+            }
+        }
+    }
+
+   /* "extra": {
         "symfony": {
             "allow-contrib": false,
             "require": "5.1.*"
         }
-    }
+    }*/
 }

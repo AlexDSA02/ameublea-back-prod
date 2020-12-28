@@ -11,11 +11,13 @@ require dirname(__DIR__).'/vendor/autoload.php';
 
 
 //Scalingo
+/*
 Request::setTrustedProxies(
 // trust *all* requests
     ['127.0.0.1', $request->server->get('REMOTE_ADDR')],
     Request::HEADER_X_FORWARDED_ALL
 );
+*/
 //Scalingo
 
 
@@ -26,7 +28,12 @@ if ($_SERVER['APP_DEBUG']) {
 }
 
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+    //Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+    Request::setTrustedProxies(
+// trust *all* requests
+        ['127.0.0.1', $request->server->get('REMOTE_ADDR')],
+        Request::HEADER_X_FORWARDED_ALL
+    );
 }
 
 if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {

@@ -31,7 +31,7 @@ if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
     //Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
     Request::setTrustedProxies(
 // trust *all* requests
-        ['127.0.0.1', $request->server->get('REMOTE_ADDR')],
+        ['https://ameublea-back.osc-fr1.scalingo.io', $request->server->get('REMOTE_ADDR')],
         Request::HEADER_X_FORWARDED_ALL
     );
 }

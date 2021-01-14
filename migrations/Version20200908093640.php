@@ -29,7 +29,7 @@ final class Version20200908093640 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE devis ADD ambiance_id INT NOT NULL');
-        //$this->addSql('ALTER TABLE devis ADD CONSTRAINT FK_8B27C52B37A05A93 FOREIGN KEY (ambiance_id) REFERENCES ambiance (id)');
+        $this->addSql('ALTER TABLE devis ADD CONSTRAINT FK_8B27C52B37A05A93 FOREIGN KEY (ambiance_id) REFERENCES ambiance (id)');
         $this->addSql('CREATE INDEX IDX_8B27C52B37A05A93 ON devis (ambiance_id)');
     }
 }

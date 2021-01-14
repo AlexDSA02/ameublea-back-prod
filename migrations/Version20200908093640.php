@@ -20,9 +20,9 @@ final class Version20200908093640 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        //$this->addSql('ALTER TABLE devis DROP FOREIGN KEY FK_8B27C52B37A05A93');
-        //$this->addSql('DROP INDEX IDX_8B27C52B37A05A93 ON devis');
-        //$this->addSql('ALTER TABLE devis DROP ambiance_id');
+        $this->addSql('ALTER TABLE devis DROP FOREIGN KEY FK_8B27C52B37A05A93');
+        $this->addSql('DROP INDEX IDX_8B27C52B37A05A93 ON devis');
+        $this->addSql('ALTER TABLE devis DROP ambiance_id');
     }
 
     public function down(Schema $schema) : void

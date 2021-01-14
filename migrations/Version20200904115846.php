@@ -20,7 +20,7 @@ final class Version20200904115846 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE IF NOT EXISTS client (id INT AUTO_INCREMENT NOT NULL, client_logo VARCHAR(255) DEFAULT NULL, nom_societe VARCHAR(255) NOT NULL, nom_contact VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE client (id INT AUTO_INCREMENT NOT NULL, client_logo VARCHAR(255) DEFAULT NULL, nom_societe VARCHAR(255) NOT NULL, nom_contact VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void

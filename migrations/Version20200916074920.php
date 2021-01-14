@@ -20,7 +20,7 @@ final class Version20200916074920 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE piece_ambiance_meuble_groupe (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE IF NOT EXISTS piece_ambiance_meuble_groupe (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE piece_ambiance DROP FOREIGN KEY piece_ambiance_ibfk_1');
         $this->addSql('DROP INDEX meuble_groupe_id ON piece_ambiance');
         $this->addSql('ALTER TABLE piece_ambiance DROP meuble_groupe_id');

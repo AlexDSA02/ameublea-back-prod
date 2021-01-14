@@ -57,6 +57,7 @@ class Devis
 
     /**
      * @ORM\ManyToOne(targetEntity=ambiance::class, inversedBy="devis")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $ambiance;
 

@@ -36,6 +36,11 @@ class PieceAmbianceMeubleGroupe
      */
     private $meubleGroupe;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $newPiece;
+
 
     public function getId(): ?int
     {
@@ -74,6 +79,18 @@ class PieceAmbianceMeubleGroupe
     public function setMeubleGroupe(?meubleGroupe $meubleGroupe): self
     {
         $this->meubleGroupe = $meubleGroupe;
+
+        return $this;
+    }
+
+    public function getNewPiece(): ?string
+    {
+        return $this->newPiece;
+    }
+
+    public function setNewPiece(?string $newPiece): self
+    {
+        $this->newPiece = $newPiece;
 
         return $this;
     }

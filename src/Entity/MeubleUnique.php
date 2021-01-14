@@ -40,6 +40,11 @@ class MeubleUnique
      */
     private $meuble_groupe;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $dataCode;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +94,18 @@ class MeubleUnique
     public function setMeubleGroupe(?meubleGroupe $meuble_groupe): self
     {
         $this->meuble_groupe = $meuble_groupe;
+
+        return $this;
+    }
+
+    public function getDataCode(): ?string
+    {
+        return $this->dataCode;
+    }
+
+    public function setDataCode(?string $dataCode): self
+    {
+        $this->dataCode = $dataCode;
 
         return $this;
     }

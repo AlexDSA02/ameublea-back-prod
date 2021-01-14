@@ -61,6 +61,71 @@ class MeubleGroupe
      */
     private $prix;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ref_ameublea;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $fournisseur;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $name_fournisseur;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $longueur;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $largeur;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $hauteur;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $diametre;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $poids;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $eco_mob;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $rack;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $niveau;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $emplacement;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $famille;
+
 
     public function __construct()
     {
@@ -237,6 +302,162 @@ class MeubleGroupe
     public function setPrix(?float $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getRefAmeublea(): ?string
+    {
+        return $this->ref_ameublea;
+    }
+
+    public function setRefAmeublea(?string $ref_ameublea): self
+    {
+        $this->ref_ameublea = $ref_ameublea;
+
+        return $this;
+    }
+
+    public function getFournisseur(): ?string
+    {
+        return $this->fournisseur;
+    }
+
+    public function setFournisseur(?string $fournisseur): self
+    {
+        $this->fournisseur = $fournisseur;
+
+        return $this;
+    }
+
+    public function getNameFournisseur(): ?string
+    {
+        return $this->name_fournisseur;
+    }
+
+    public function setNameFournisseur(?string $name_fournisseur): self
+    {
+        $this->name_fournisseur = $name_fournisseur;
+
+        return $this;
+    }
+
+    public function getLongueur(): ?string
+    {
+        return $this->longueur;
+    }
+
+    public function setLongueur(?string $longueur): self
+    {
+        $this->longueur = $longueur;
+
+        return $this;
+    }
+
+    public function getLargeur(): ?float
+    {
+        return $this->largeur;
+    }
+
+    public function setLargeur(?float $largeur): self
+    {
+        $this->largeur = $largeur;
+
+        return $this;
+    }
+
+    public function getHauteur(): ?float
+    {
+        return $this->hauteur;
+    }
+
+    public function setHauteur(?float $hauteur): self
+    {
+        $this->hauteur = $hauteur;
+
+        return $this;
+    }
+
+    public function getDiametre(): ?float
+    {
+        return $this->diametre;
+    }
+
+    public function setDiametre(?float $diametre): self
+    {
+        $this->diametre = $diametre;
+
+        return $this;
+    }
+
+    public function getPoids(): ?float
+    {
+        return $this->poids;
+    }
+
+    public function setPoids(?float $poids): self
+    {
+        $this->poids = $poids;
+
+        return $this;
+    }
+
+    public function getEcoMob(): ?float
+    {
+        return $this->eco_mob;
+    }
+
+    public function setEcoMob(?float $eco_mob): self
+    {
+        $this->eco_mob = $eco_mob;
+
+        return $this;
+    }
+
+    public function getRack(): ?string
+    {
+        return $this->rack;
+    }
+
+    public function setRack(?string $rack): self
+    {
+        $this->rack = $rack;
+
+        return $this;
+    }
+
+    public function getNiveau(): ?float
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(?float $niveau): self
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    public function getEmplacement(): ?float
+    {
+        return $this->emplacement;
+    }
+
+    public function setEmplacement(?float $emplacement): self
+    {
+        $this->emplacement = $emplacement;
+
+        return $this;
+    }
+
+    public function getFamille(): ?string
+    {
+        return $this->famille;
+    }
+
+    public function setFamille(?string $famille): self
+    {
+        $this->famille = $famille;
 
         return $this;
     }
